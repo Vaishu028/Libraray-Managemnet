@@ -1,0 +1,2023 @@
+/*
+ * Author       : zappyworkssoftwaresolutionsi
+ * Generated on : 20-Nov-2025 11:03:38
+ * Version      : 1.0
+ */
+ application "Library management"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+ 	forms
+	{
+		form Book_details
+		{
+			displayname = "Book details"
+			success message = "Book Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Book_name
+			(
+    			type = text
+				displayname = "Book name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_Id1
+			(
+    			type = text
+				displayname = "Book id"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Author_name
+			(
+    			type = text
+				displayname = "Author name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Book_quantity
+			(
+				type = number
+				displayname = "Book quantity"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_available
+			(
+				type = number
+				displayname = "Book available"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_cost
+			(
+				type = number
+				displayname = "Book cost"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Book_issue
+		{
+			displayname = "Book issue"
+			success message = "Book Issue Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Member_ID
+			(
+				type = picklist	
+				displayname = "Member ID"
+				values  = Member_details.ID
+    			displayformat = [Member_Id]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_name
+			(
+    			type = text
+				displayname = "Member name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Member_type
+			(
+    			type = text
+				displayname = "Member type"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			no_of_days_allowed
+			(
+				type = number
+				displayname = "No.of days allowed"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_book_count
+			(
+    			type = text
+				displayname = "Member book count"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have issue_date
+			(
+    			type = date
+				displayname = "issue date"
+				initial value = "${zoho.currentdate}"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Return_Date
+			(
+    			type = date
+				displayname = " Return Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_name
+			(
+				type = picklist	
+				displayname = "Book name"
+				values  = Book_details.ID
+    			displayformat = [Book_name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_id
+			(
+    			type = text
+				displayname = "Book id"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_Author
+			(
+    			type = text
+				displayname = "Book Author"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_issue_id
+			(
+    			type = text
+				displayname = "Book issue id"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Book_return1
+		{
+			displayname = "Book return"
+			success message = "Book Return Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Book_issue_id
+			(
+				type = picklist	
+				displayname = "Book issue id"
+				values  = Book_issue.ID
+    			displayformat = [Book_issue_id + " - " + Member_name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_id
+			(
+    			type = text
+				displayname = "Member id"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_name
+			(
+    			type = text
+				displayname = "Member name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_type
+			(
+    			type = text
+				displayname = "Member type"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_id
+			(
+    			type = text
+				displayname = "Book id"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_name
+			(
+    			type = text
+				displayname = "Book name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_author
+			(
+    			type = text
+				displayname = "Book author"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_issue_Date
+			(
+    			type = date
+				displayname = "Book issue Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_tbr_date
+			(
+    			type = date
+				displayname = "Book tbr date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Current_Date
+			(
+    			type = date
+				displayname = "Current Date"
+				initial value = "${zoho.currentdate}"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Days_late
+			(
+    			type = text
+				displayname = "Days late"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_status
+			(
+				type = picklist
+				displayname = "Book condition"
+				maxchar = 100
+				values = {"Lost","Damage","Over due","No issue"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Fine_amount
+			(
+				type = number
+				displayname = "Fine amount"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total_fine_amount
+			(
+				type = number
+				displayname = "Total fine amount"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_status1
+			(
+				type = picklist
+				displayname = "Book status"
+				maxchar = 100
+				values = {"Returned","Not Returned"}
+				initial value = "Not Returned"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Member_details
+		{
+			displayname = "Member details"
+			success message = "Member Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Member_Name
+			(
+    			type = name
+				displayname = "Member Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Member_Phone
+			(
+    			type = phonenumber
+				displayname = " Member Phone"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Member_Address
+			(
+    			type = address
+				displayname = "Member Address"
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Member_Type
+			(
+				type = picklist	
+				displayname = "Member Type"
+				values  = Member_rules.ID
+    			displayformat = [Member_type]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_Fees
+			(
+				type = number
+				displayname = "Member Fees"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			No_of_days_allowed
+			(
+				type = number
+				displayname = "No of days allowed"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_book_count
+			(
+				type = number
+				displayname = "Member book count"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_Id
+			(
+    			type = text
+				displayname = "Member Id"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Member_rules
+		{
+			displayname = "Member rules"
+			success message = "Member Rule Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Member_type
+			(
+				type = picklist
+				displayname = "Member type"
+				maxchar = 100
+				values = {"Silver","Gold","Platinum"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_fees
+			(
+				displayname = "Member fees"
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Member_book_count
+			(
+				type = number
+				displayname = "Member book count"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Allowed_days
+			(
+				type = number
+				displayname = "Allowed days"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list All_Member_Details
+		{
+			displayName = "All Member Details"
+			show all rows from Member_details    
+			(
+				Member_Name  as "Member Name"
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Member_Phone as " Member Phone"
+				(
+					displayformat = plainnumber 
+					linktodial = enable
+				)
+				Member_Address  as "Member Address"
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Member_Id as "Member Id"
+				Email
+				Member_Type as "Member Type"
+				Member_Fees as "Member Fees"
+				Member_book_count as "Member book count"
+				No_of_days_allowed as "No of days allowed"
+			)
+		}
+		default list All_Member_Rules
+		{
+			displayName = "All Member Rules"
+			show all rows from Member_rules    
+			(
+				Member_fees as "Member fees"
+				Member_book_count as "Member book count"
+				Allowed_days as "Allowed days"
+				Member_type as "Member type"
+			)
+		}
+		default list All_Book_Details
+		{
+			displayName = "All Book Details"
+			show all rows from Book_details    
+			(
+				Book_name as "Book name"
+				Book_quantity as "Book quantity"
+				Book_available as "Book available"
+				Auto_Number as "Auto Number"
+				Author_name as "Author name"
+				Book_Id1 as "Book id"
+				Book_cost as "Book cost"
+			)
+		}
+		default list All_Book_Issues
+		{
+			displayName = "All Book Issues"
+			show all rows from Book_issue    
+			(
+				Member_type as "Member type"
+				no_of_days_allowed as "No.of days allowed"
+				Book_Author as "Book Author"
+				Member_ID as "Member ID"
+				Member_name as "Member name"
+				Address 
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+					linktodial = enable
+				)
+				Member_book_count as "Member book count"
+				Return_Date as " Return Date"
+				issue_date as "issue date"
+				Book_id as "Book id"
+				Book_name as "Book name"
+				Auto_Number as "Auto Number"
+				Book_issue_id as "Book issue id"
+			)
+		}
+		default list All_Book_Returns1
+		{
+			displayName = "All Book Returns"
+			show all rows from Book_return1    
+			(
+				Member_name as "Member name"
+				Member_type as "Member type"
+				Book_issue_Date as "Book issue Date"
+				Book_name as "Book name"
+				Current_Date as "Current Date"
+				Book_tbr_date as "Book tbr date"
+				Fine_amount as "Fine amount"
+				Book_status as "Book condition"
+				Total_fine_amount as "Total fine amount"
+				Book_issue_id as "Book issue id"
+				Member_id as "Member id"
+				Book_id as "Book id"
+				Days_late as "Days late"
+				Book_status1 as "Book status"
+				Book_author as "Book author"
+			)
+		}
+	}
+
+
+		workflow
+		{
+		form
+		{
+			genarate_book_id as "genarate book id"
+			{
+				type =  form
+				form = Book_details
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// input.Book_Id1 = "B00" + input.Auto_Number;
+										// if(input.Member_Type != 0)
+										// {
+										// 	planame = input.Member_Type.Member_type;
+										// 	firstch = planame.subString(0,1).toUpperCase();
+										// 	memtype = Member_details[Member_Type.Member_type == planame];
+										// 	coun = memtype.count();
+										// 	input.Member_Id = firstch + coun;
+										// }
+										if(input.Book_name != null)
+										{
+											bookname = input.Book_name;
+											firstch = bookname.subString(0,1).toUpperCase();
+											bookname1 = Book_details[Book_name == bookname];
+											coun = bookname1.count();
+											input.Book_Id1 = firstch + coun;
+										}
+						)
+					}
+				}
+
+			}
+			hide_fields as "hide fields"
+			{
+				type =  form
+				form = Book_details
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						hide Book_Id1;
+					}
+					actions 
+					{
+						disable Book_available;
+					}
+				}
+
+			}
+			Book_quantity as "Book quantity"
+			{
+				type =  form
+				form = Book_details
+				record event = on add or edit
+
+				on user input of Book_quantity
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Book_quantity < 0)
+										{
+											alert "Enter a valid number";
+											input.Book_quantity = null;
+										}
+						)
+					}
+				}
+
+			}
+			generate_member_id as "generate member id"
+			{
+				type =  form
+				form = Member_details
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// coun = Member_details.count();
+										// input.Member_Id = input.Member_Type.Member_type.substring(0,1).toUpperCase() + "00" + coun;
+										if(input.Member_Type != 0)
+										{
+											planame = input.Member_Type.Member_type;
+											firstch = planame.subString(0,1).toUpperCase();
+											memtype = Member_details[Member_Type.Member_type == planame];
+											coun = memtype.count();
+											input.Member_Id = firstch + coun;
+										}
+						)
+					}
+				}
+
+			}
+			disable_fields as "disable fields"
+			{
+				type =  form
+				form = Member_details
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						disable Member_Fees,Member_book_count,Member_Id;
+					}
+				}
+
+			}
+			membership_field as "membership field"
+			{
+				type =  form
+				form = Member_details
+				record event = on add or edit
+
+				on user input of Member_Type
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											fetchmemtype = Member_rules[ID == input.Member_Type];
+										if(fetchmemtype.count(ID) > 0)
+										{
+											input.Member_Fees = fetchmemtype.Member_fees;
+											input.Member_book_count = fetchmemtype.Member_book_count;
+											input.No_of_days_allowed = fetchmemtype.Allowed_days;
+										}
+										else
+										{
+											alert "No data found";
+											input.Member_Fees = null;
+										}
+						)
+					}
+				}
+
+			}
+			add_member_details as "add member details"
+			{
+				type =  form
+				form = Book_issue
+				record event = on add or edit
+
+				on user input of Member_ID
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											var = Member_details[ID == input.Member_ID];
+										input.Member_name = var.Member_Name;
+										input.Member_type = var.Member_Type.Member_type;
+										input.Address = var.Member_Address;
+										input.Phone_Number = var.Member_Phone;
+										input.Member_book_count = var.Member_book_count;
+										input.no_of_days_allowed = var.No_of_days_allowed;
+										if(input.Member_type.equalsIgnoreCase("silver"))
+										{
+											input.Return_Date = input.issue_date.addDay(4);
+										}
+										else if(input.Member_type.equalsIgnoreCase("gold"))
+										{
+											input.Return_Date = input.issue_date.addDay(7);
+										}
+										else if(input.Member_type.equalsIgnoreCase("platinum"))
+										{
+											input.Return_Date = input.issue_date.addDay(10);
+										}
+						)
+					}
+				}
+
+			}
+			disaled_fields as "disaled fields"
+			{
+				type =  form
+				form = Book_issue
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						disable Address,Member_book_count,Phone_Number,no_of_days_allowed,issue_date,Book_Author,Member_name,Member_type,Return_Date,Book_id;
+					}
+				}
+
+			}
+			add_book_details as "add book details"
+			{
+				type =  form
+				form = Book_details
+				record event = on add or edit
+
+				on user input of Book_Id1
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											fetchbook = Book_details[Book_name == input.Book_name];
+										input.Book_name = fetchbook.Book_name;
+										Book_Author = fetchbook.Author_name;
+										input.Book_Id1 = fetchbook.Book_Id1;
+						)
+					}
+				}
+
+			}
+			calculate_book_details as "calculate book details"
+			{
+				type =  form
+				form = Book_issue
+				record event = on add or edit
+
+				on user input of Book_name
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// varfetch = Book_details[ID == input.Book_name];
+										// input.Book_name = varfetch.Book_name;
+										// input.Book_id = varfetch.Book_Id1;
+										// input.Book_Author = varfetch.Author_name;
+										input.Book_id = input.Book_name.Book_Id1;
+										input.Book_Author = input.Book_name.Author_name;
+						)
+					}
+				}
+
+			}
+			disabled_fields as "disabled fields"
+			{
+				type =  form
+				form = Book_return1
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						disable Member_name,Member_type,Book_issue_Date,Book_name,Current_Date,Book_tbr_date,Fine_amount,Days_late,Member_id;
+					}
+				}
+
+			}
+			generate_book_issue_id as "generate book issue id"
+			{
+				type =  form
+				form = Book_issue
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Book_issue_id = "BIS" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			final_book_Return as "final_book_Return"
+			{
+				type =  form
+				form = Book_return1
+				record event = on add or edit
+
+				on user input of Book_issue_id
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(Book_issue_id != null)
+										{
+											var = Book_issue[ID == input.Book_issue_id];
+											input.Member_name = var.Member_name;
+											input.Member_id = var.Member_ID;
+											input.Member_type = var.Member_type;
+											input.Book_id = var.Book_id;
+											input.Book_name = var.Book_name.Book_name;
+											input.Book_issue_Date = var.issue_date;
+											input.Book_tbr_date = var.Return_Date;
+										}
+										else
+										{
+											input.Member_name = null;
+											input.Member_id = null;
+											input.Member_type = null;
+											input.Book_id = null;
+											input.Book_name = null;
+											input.Book_issue_Date = null;
+											input.Book_tbr_date = null;
+										}
+										dayslate = input.Book_tbr_date.daysBetween(input.Current_Date);
+										if(dayslate > 0)
+										{
+											input.Days_late = dayslate;
+										}
+										else
+										{
+											input.Days_late = 0;
+										}
+						)
+					}
+				}
+
+			}
+			book_status_workflow as "book_status_workflow"
+			{
+				type =  form
+				form = Book_return1
+				record event = on add or edit
+
+				on user input of Book_status
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											amount = 10;
+										var = Book_details[Book_name == input.Book_name];
+										if(input.Book_status.equalsIgnoreCase("Damage"))
+										{
+											input.Fine_amount = var.Book_cost / 2;
+										}
+										else if(input.Book_status.equalsIgnoreCase("Over due"))
+										{
+											input.Fine_amount = input.Days_late.toNumber() * amount;
+										}
+										else if(input.Book_status.equalsIgnoreCase("Lost"))
+										{
+											input.Fine_amount = var.Book_cost;
+										}
+										else
+										{
+											input.Fine_amount = 0;
+										}
+										input.Total_fine_amount = input.Fine_amount;
+						)
+					}
+				}
+
+			}
+			member_book_count as "member book count"
+			{
+				type =  form
+				form = Book_issue
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											fetch = Book_details[Book_Id1 == input.Book_id];
+										fetch.Book_available=fetch.Book_quantity - 1;
+						)
+					}
+				}
+
+			}
+			book_count_details as "book count details"
+			{
+				type =  form
+				form = Book_return1
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											fettch1 = Book_details[Book_Id1 == input.Book_id];
+										fettch1.Book_available=fettch1.Book_quantity + 1;
+						)
+					}
+				}
+
+			}
+			alert_same_book_author as "alert same book author"
+			{
+				type =  form
+				form = Book_issue
+				record event = on add
+
+				on user input of Book_id
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											br = Book_return1[ID == input.Member_ID];
+						)
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form Book_details
+			{
+				label placement = top
+			}
+			form Book_issue
+			{
+				label placement = left
+			}
+			form Book_return1
+			{
+				label placement = left
+			}
+			form Member_details
+			{
+				label placement = left
+			}
+			form Member_rules
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report All_Member_Details
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Member_Name as "Member Name"
+								Member_Phone as " Member Phone"
+								Member_Address as "Member Address"
+								Email
+								Member_Type as "Member Type"
+								Member_Fees as "Member Fees"
+								No_of_days_allowed as "No of days allowed"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Member_Name as "Member Name"
+								Member_Phone as " Member Phone"
+								Member_Address as "Member Address"
+								Member_Id as "Member Id"
+								Email
+								Member_Type as "Member Type"
+								Member_Fees as "Member Fees"
+								Member_book_count as "Member book count"
+								No_of_days_allowed as "No of days allowed"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Member_Rules
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Member_fees as "Member fees"
+								Member_book_count as "Member book count"
+								Allowed_days as "Allowed days"
+								Member_type as "Member type"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Member_fees as "Member fees"
+								Member_book_count as "Member book count"
+								Allowed_days as "Allowed days"
+								Member_type as "Member type"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Book_Details
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Book_name as "Book name"
+								Book_quantity as "Book quantity"
+								Book_available as "Book available"
+								Auto_Number as "Auto Number"
+								Author_name as "Author name"
+								Book_Id1 as "Book id"
+								Book_cost as "Book cost"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Book_name as "Book name"
+								Book_quantity as "Book quantity"
+								Book_available as "Book available"
+								Auto_Number as "Auto Number"
+								Author_name as "Author name"
+								Book_Id1 as "Book id"
+								Book_cost as "Book cost"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Book_Issues
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Member_type as "Member type"
+								no_of_days_allowed as "No.of days allowed"
+								Book_Author as "Book Author"
+								Member_ID as "Member ID"
+								Member_name as "Member name"
+								Address
+								Member_book_count as "Member book count"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Member_type as "Member type"
+								no_of_days_allowed as "No.of days allowed"
+								Book_Author as "Book Author"
+								Member_ID as "Member ID"
+								Member_name as "Member name"
+								Address
+								Phone_Number as "Phone"
+								Member_book_count as "Member book count"
+								Return_Date as " Return Date"
+								issue_date as "issue date"
+								Book_id as "Book id"
+								Book_name as "Book name"
+								Auto_Number as "Auto Number"
+								Book_issue_id as "Book issue id"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Book_Returns1
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Member_name as "Member name"
+								Member_type as "Member type"
+								Book_issue_Date as "Book issue Date"
+								Book_name as "Book name"
+								Current_Date as "Current Date"
+								Book_issue_id as "Book issue id"
+								Book_id as "Book id"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Member_name as "Member name"
+								Member_type as "Member type"
+								Book_issue_Date as "Book issue Date"
+								Book_name as "Book name"
+								Current_Date as "Current Date"
+								Book_tbr_date as "Book tbr date"
+								Fine_amount as "Fine amount"
+								Book_status as "Book condition"
+								Total_fine_amount as "Total fine amount"
+								Book_issue_id as "Book issue id"
+								Member_id as "Member id"
+								Book_id as "Book id"
+								Days_late as "Days late"
+								Book_status1 as "Book status"
+								Book_author as "Book author"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Member_Details
+				{
+					displayname = "Member Details"
+					icon = "business-notes"
+					form  Member_details
+					{
+						icon = "business-notes"
+					}
+					report All_Member_Details
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Member_Rules
+				{
+					displayname = "Member Rules"
+					icon = "business-law"
+					form  Member_rules
+					{
+						icon = "business-law"
+					}
+					report All_Member_Rules
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Book_Details
+				{
+					displayname = "Book Details"
+					icon = "education-book-open"
+					form  Book_details
+					{
+						icon = "education-book-open"
+					}
+					report All_Book_Details
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Book_Issues
+				{
+					displayname = "Book Issues"
+					icon = "education-book-open"
+					form  Book_issue
+					{
+						icon = "education-book-open"
+					}
+					report All_Book_Issues
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Book_Returns1
+				{
+					displayname = "Book Returns"
+					icon = "education-book-open"
+					form  Book_return1
+					{
+						icon = "education-book-open"
+					}
+					report All_Book_Returns1
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			new theme = 11
+			font = "lato"
+			color options
+			{
+				color = "1"
+			}
+			logo
+			{
+				preference = "none"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Book_details
+			{
+				label placement = auto
+			}
+			form Book_issue
+			{
+				label placement = auto
+			}
+			form Book_return1
+			{
+				label placement = auto
+			}
+			form Member_details
+			{
+				label placement = auto
+			}
+			form Member_rules
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = blue
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Book_details
+			{
+				label placement = auto
+			}
+			form Book_issue
+			{
+				label placement = auto
+			}
+			form Book_return1
+			{
+				label placement = auto
+			}
+			form Member_details
+			{
+				label placement = auto
+			}
+			form Member_rules
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = blue
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
